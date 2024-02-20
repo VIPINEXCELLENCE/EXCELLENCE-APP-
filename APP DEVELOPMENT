@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Display App</title>
+    <style>
+        /* Add some basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        #data-container {
+            width: 80%;
+            max-width: 600px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div id="data-container">
+        <h1>Data Display App</h1>
+        <div id="data-list"></div>
+    </div>
+
+    <script>
+        // Sample data to display
+        const data = [
+            { id: 1, name: 'Item 1', description: 'Description for Item 1' },
+            { id: 2, name: 'Item 2', description: 'Description for Item 2' },
+            { id: 3, name: 'Item 3', description: 'Description for Item 3' }
+        ];
+
+        // Function to render data
+        function renderData() {
+            const dataList = document.getElementById('data-list');
+            dataList.innerHTML = ''; // Clear previous data
+
+            data.forEach(item => {
+                const itemElement = document.createElement('div');
+                itemElement.innerHTML = `
+                    <h3>${item.name}</h3>
+                    <p>${item.description}</p>
+                    <hr>
+                `;
+                dataList.appendChild(itemElement);
+            });
+        }
+
+        // Call the renderData function when the page loads
+        window.onload = renderData;
+    </script>
+</body>
+</html>
